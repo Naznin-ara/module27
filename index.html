@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root" class="max-w-screen-xl mx-auto flex gap-4 justify-center items-center">
+        <div class="w-[300px] h-[400px] rounded-lg shadow-lg flex flex-col justify-center items-center py-2 px-2 gap-4 " >
+            <img src="news-1.png" alt="">
+            <h1 class="text-2xl ">Price <span id="mainprice">600</span> BDT</h1>
+            <p class="text-sm text-gray-500">Discount 30%</p>
+            <input type="text" id="cupon" placeholder="Add cupon DSE100" class="w-[80%] px-4 py-2 rounded-lg bg-gray-100 border-none">
+            <button id="btn" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Add</button>
+        </div>
+       <div id="div">
+
+       </div>
+    </div>
+
+    <script>
+        function discount(num, dis){
+            let discountAmount = num*(dis/100);
+            let finalAmount = num - discountAmount;
+            return finalAmount;
+        }
+        document.getElementById('btn').addEventListener('click' , function(){
+
+            const main = document.getElementById('root');
+
+            const cuponinput =document.getElementById('cupon');
+            let cupon = cuponinput.value;
+            const mainprice =document.getElementById('mainprice').innerText;
+             let finalPrice = discount(600,30);
+             let div = document.getElementById('div');
+             if(cupon == "DSE100"){
+                
+                
+              div.innerHTML = ` <div class="w-[200px] h-[300px] rounded-lg shadow-lg flex flex-row justify-center items-center py-2 px-2 gap-4 ">
+            <img src="news-1.png" alt="" class="w-[50px] h-[50px]">
+            <p class="text-lg font-medium">Price : <span id="discount" class="">${finalPrice} BDT</span></p>
+          </div >`;
+        
+        
+             }else{
+                
+                
+              div.innerHTML = ` <div class="w-[200px] h-[300px] rounded-lg shadow-lg flex flex-row justify-center items-center py-2 px-2 gap-4 ">
+            <img src="news-1.png" alt="" class="w-[50px] h-[50px]">
+            <p class="text-lg font-medium">Price:<span id="discount" class="">${mainprice} BDT</span></p>
+          </div >`;
+       
+          
+             }
+             
+
+        })
+    </script>
+</body>
+</html>

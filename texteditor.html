@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.css" integrity="sha512-EaaldggZt4DPKMYBa143vxXQqLq5LE29DG/0OoVenoyxDrAScYrcYcHIuxYO9YNTIQMgD8c8gIUU8FQw7WpXSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Text editor</title>
+    <style>
+        body{
+            
+        }
+    </style>
+</head>
+<body class="max-w-screen-2xl mx-auto flex justify-center items-center bg-red-100">
+ <div class="bg-orange-400 rounded-lg w-[700px] h-[600px] mt-2 flex flex-col ">
+    <div class=" flex mt-2 justify-between items-start">
+        <div class="flex  p-2 justify-center items-start gap-2">
+          <button id="bold" class="px-3 py-2 bg-blue-300 text-base font-bold rounded-md" >B</button>
+          <button id="italic" class="px-3 py-2 bg-blue-300 text-base font-bold italic rounded-md" >I</button>
+        </div>
+      <div class="flex justify-center items-center gap-2 mt-2">
+          <i id="right" class="fa fa-align-right px-3 py-2 bg-blue-300 text-base font-bold rounded-md" aria-hidden="true"></i>
+          <i id="center" class="fa fa-align-center px-3 py-2 bg-blue-300 text-base font-bold rounded-md" aria-hidden="true"></i>
+          <i id="left" class="fa fa-align-left px-3 py-2 bg-blue-300 text-base font-bold rounded-md" aria-hidden="true"></i>
+      </div>
+      <div class="flex justify-center items-center gap-2 mt-2 mr-2">
+          <label for="size" class="font-medium text-xl"><i class="fa fa-font" aria-hidden="true"></i>
+          <input type="number" name="number" id="size" class="w-[50px] h-[30px] rounded-md " placeholder="10">
+          <input type="color" name="color" id="color">
+      </label>
+        
+      </div>
+      </div>
+      <textarea name="text" id="text" class="w-[600px] h-[500px] bg-white mx-auto mt-3 rounded-sm pl-4 pt-2 pr-4" ></textarea>
+      <!-- <div class="w-[600px] h-[500px] bg-white mx-auto mt-3 rounded-sm">
+        <h1 class="text-[10px]" id="text">hello</h1>
+      </div> -->
+
+ </div>
+    
+    <script>
+        const text =document.getElementById('text');
+        const size = document.getElementById('size');
+        const color = document.getElementById('color');
+        document.getElementById('bold').addEventListener('click' ,function(){
+        text.style.fontWeight = "bold";
+        })
+        document.getElementById('italic').addEventListener('click' ,function(){
+        text.style.fontStyle = "italic";
+        })
+        document.getElementById('right').addEventListener('click' ,function(){
+        text.style.textAlign = "right";
+        })
+        document.getElementById('center').addEventListener('click' ,function(){
+        text.style.textAlign = "center";
+        })
+        document.getElementById('left').addEventListener('click' ,function(){
+        text.style.textAlign = "left";
+        })
+        size.addEventListener('input' ,function(){
+        text.style.fontSize = size.value + 'px';
+        })
+        color.addEventListener('input' ,function(){
+        text.style.color = color.value;
+        })
+    </script>
+</body>
+</html>
